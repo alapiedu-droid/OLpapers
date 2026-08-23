@@ -1,44 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OL අපි 🇱🇰 | O/L Paper Hub</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<link rel="stylesheet" href="style.css">
+<title>OL Papers | Sri Lanka</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
 </head>
 
+
 <body>
+
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
     <div class="header-top">
 
         <div class="logo">
-            OL අපි 🇱🇰
-            <span>O/L Paper Hub</span>
+
+            OL PAPERS 🇱🇰
+
+            <span>
+                Sri Lanka O/L Student Hub
+            </span>
+
         </div>
 
-        <button class="menu-btn">☰</button>
+
+        <button
+            class="menu-btn"
+            onclick="window.scrollTo({
+                top:0,
+                behavior:'smooth'
+            })"
+        >
+            ☰
+        </button>
 
     </div>
 
+
     <div class="hero">
 
-        <h1>Study Smarter.<br>Score Better. 🎓</h1>
+        <h1>
+            O/L Papers<br>
+            Everything in One Place
+        </h1>
 
         <p>
-            Grade 10 & 11 O/L Papers, School Papers,
-            Province Papers, Notes & More.
+            Grade 10 & Grade 11
+            Past Papers, School Papers,
+            Province Papers & Marking Schemes
         </p>
 
+
         <input
+            id="searchBox"
             class="search"
             type="search"
-            id="searchBox"
-            placeholder="🔎 Search papers, subjects, years..."
-            onkeyup="searchPapers()"
+            placeholder="🔍 Search subject, year or paper..."
+            oninput="searchPapers()"
         >
 
     </div>
@@ -46,226 +80,344 @@
 </header>
 
 
+
+<!-- ================= MAIN ================= -->
+
 <main>
 
-    <!-- GRADES -->
+
+<!-- GRADES -->
+
+<section>
 
     <div class="section-title">
-        <h2>Choose Your Grade</h2>
-        <small>Grade 10 / 11</small>
+
+        <h2>
+            🎓 Select Grade
+        </h2>
+
+        <small>
+            Grade 10 / 11
+        </small>
+
     </div>
+
 
     <div class="grade-grid">
 
-        <div class="grade-card" onclick="selectGrade('Grade 10')">
-            <div class="grade-icon">📘</div>
-            <h3>Grade 10</h3>
-            <p>Grade 10 papers & learning resources</p>
+
+        <div
+            class="grade-card"
+            onclick="selectGrade('10')"
+        >
+
+            <div class="grade-icon">
+                1️⃣0️⃣
+            </div>
+
+            <h3>
+                Grade 10
+            </h3>
+
+            <p>
+                Grade 10 Papers
+            </p>
+
         </div>
 
-        <div class="grade-card" onclick="selectGrade('Grade 11')">
-            <div class="grade-icon">🎓</div>
-            <h3>Grade 11</h3>
-            <p>Grade 11 papers & O/L preparation</p>
+
+
+        <div
+            class="grade-card"
+            onclick="selectGrade('11')"
+        >
+
+            <div class="grade-icon">
+                1️⃣1️⃣
+            </div>
+
+            <h3>
+                Grade 11
+            </h3>
+
+            <p>
+                G.C.E. O/L Grade 11
+            </p>
+
         </div>
+
 
     </div>
 
+</section>
 
-    <!-- SUBJECTS -->
+
+
+<!-- SUBJECTS -->
+
+<section>
 
     <div class="section-title">
-        <h2>Subjects</h2>
-        <small>All Subjects</small>
-    </div>
 
-    <div class="subject-grid">
+        <h2>
+            📚 All Subjects
+        </h2>
 
-        <div class="subject" onclick="openSubject('Sinhala')">
-            <div class="subject-icon">📖</div>
-            <h3>Sinhala</h3>
-            <p>Language & Literature</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('Mathematics')">
-            <div class="subject-icon">📐</div>
-            <h3>Mathematics</h3>
-            <p>Mathematics</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('Science')">
-            <div class="subject-icon">🔬</div>
-            <h3>Science</h3>
-            <p>Science</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('English')">
-            <div class="subject-icon">🔤</div>
-            <h3>English</h3>
-            <p>English Language</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('History')">
-            <div class="subject-icon">🏛️</div>
-            <h3>History</h3>
-            <p>History</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('Buddhism')">
-            <div class="subject-icon">☸️</div>
-            <h3>Buddhism</h3>
-            <p>Religion</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('ICT')">
-            <div class="subject-icon">💻</div>
-            <h3>ICT</h3>
-            <p>Information & Communication</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('Geography')">
-            <div class="subject-icon">🌍</div>
-            <h3>Geography</h3>
-            <p>Geography</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('Health')">
-            <div class="subject-icon">❤️</div>
-            <h3>Health</h3>
-            <p>Health & Physical Education</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('Commerce')">
-            <div class="subject-icon">💰</div>
-            <h3>Commerce</h3>
-            <p>Commerce</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('Accounting')">
-            <div class="subject-icon">🧮</div>
-            <h3>Accounting</h3>
-            <p>Accounting</p>
-        </div>
-
-        <div class="subject" onclick="openSubject('Art')">
-            <div class="subject-icon">🎨</div>
-            <h3>Art</h3>
-            <p>Art</p>
-        </div>
+        <small>
+            O/L Subjects
+        </small>
 
     </div>
 
 
-    <!-- PAPER TYPES -->
+    <div
+        id="subjectGrid"
+        class="subject-grid"
+    >
+
+        <!-- Subjects are automatically loaded
+             from data/papers.json -->
+
+    </div>
+
+</section>
+
+
+
+<!-- PAPER TYPES -->
+
+<section>
 
     <div class="section-title">
-        <h2>Paper Collections</h2>
-        <small>Find your papers</small>
+
+        <h2>
+            📄 Paper Categories
+        </h2>
+
     </div>
+
 
     <div class="category-grid">
 
-        <div class="category" onclick="showPapers('Past Papers')">
-            <div class="category-icon">📝</div>
-            <h3>Past Papers</h3>
-            <p>Previous exam papers</p>
+
+        <div
+            class="category"
+            onclick="showPapers('Past Papers')"
+        >
+
+            <div class="category-icon">
+                📄
+            </div>
+
+            <h3>
+                Past Papers
+            </h3>
+
+            <p>
+                Previous O/L Exams
+            </p>
+
         </div>
 
-        <div class="category" onclick="showPapers('School Papers')">
-            <div class="category-icon">🏫</div>
-            <h3>School Papers</h3>
-            <p>School term papers</p>
+
+
+        <div
+            class="category"
+            onclick="showPapers('School Papers')"
+        >
+
+            <div class="category-icon">
+                🏫
+            </div>
+
+            <h3>
+                School Papers
+            </h3>
+
+            <p>
+                School Term Papers
+            </p>
+
         </div>
 
-        <div class="category" onclick="showPapers('Province Papers')">
-            <div class="category-icon">🗺️</div>
-            <h3>Province Papers</h3>
-            <p>All 9 provinces</p>
+
+
+        <div
+            class="category"
+            onclick="showPapers('Province Papers')"
+        >
+
+            <div class="category-icon">
+                🗺️
+            </div>
+
+            <h3>
+                Province Papers
+            </h3>
+
+            <p>
+                All 9 Provinces
+            </p>
+
         </div>
+
 
     </div>
 
+</section>
 
-    <!-- PROVINCES -->
+
+
+<!-- PROVINCES -->
+
+<section>
 
     <div class="section-title">
-        <h2>Province Papers</h2>
-        <small>9 Provinces</small>
+
+        <h2>
+            🗺️ Provinces
+        </h2>
+
+        <small>
+            9 Provinces
+        </small>
+
     </div>
+
 
     <div class="province-grid">
 
-        <div class="province" onclick="showProvince('Western Province')">
-            Western Province
+
+        <div
+            class="province"
+            onclick="showProvince('Western Province')"
+        >
+            Western
         </div>
 
-        <div class="province" onclick="showProvince('Central Province')">
-            Central Province
+
+        <div
+            class="province"
+            onclick="showProvince('Central Province')"
+        >
+            Central
         </div>
 
-        <div class="province" onclick="showProvince('Southern Province')">
-            Southern Province
+
+        <div
+            class="province"
+            onclick="showProvince('Southern Province')"
+        >
+            Southern
         </div>
 
-        <div class="province" onclick="showProvince('Northern Province')">
-            Northern Province
+
+        <div
+            class="province"
+            onclick="showProvince('Northern Province')"
+        >
+            Northern
         </div>
 
-        <div class="province" onclick="showProvince('Eastern Province')">
-            Eastern Province
+
+        <div
+            class="province"
+            onclick="showProvince('Eastern Province')"
+        >
+            Eastern
         </div>
 
-        <div class="province" onclick="showProvince('North Western Province')">
-            North Western Province
+
+        <div
+            class="province"
+            onclick="showProvince('North Western Province')"
+        >
+            North Western
         </div>
 
-        <div class="province" onclick="showProvince('North Central Province')">
-            North Central Province
+
+        <div
+            class="province"
+            onclick="showProvince('North Central Province')"
+        >
+            North Central
         </div>
 
-        <div class="province" onclick="showProvince('Uva Province')">
-            Uva Province
+
+        <div
+            class="province"
+            onclick="showProvince('Uva Province')"
+        >
+            Uva
         </div>
 
-        <div class="province" onclick="showProvince('Sabaragamuwa Province')">
-            Sabaragamuwa Province
+
+        <div
+            class="province"
+            onclick="showProvince('Sabaragamuwa Province')"
+        >
+            Sabaragamuwa
         </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PAPERS ================= -->
+
+<section
+    id="paperSection"
+    class="paper-list"
+>
+
+
+    <div class="section-title">
+
+        <h2 id="paperTitle">
+            Papers
+        </h2>
 
     </div>
 
 
-    <!-- PAPER RESULTS -->
+    <div id="paperResults"></div>
 
-    <div id="paperSection" class="paper-list">
 
-        <div class="section-title">
-            <h2 id="paperTitle">Papers</h2>
-        </div>
+</section>
 
-        <div id="paperResults"></div>
-
-    </div>
 
 </main>
 
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-    <h3>OL අපි 🇱🇰</h3>
+    <h3>
+        OL PAPERS 🇱🇰
+    </h3>
 
     <p>
-        O/L Papers • School Papers • Province Papers •
-        Marking Schemes
+        Sri Lankan O/L Student Resource Hub
     </p>
 
     <div class="brand">
-        ALapiedu.com
+        AL අපි 🇱🇰 | ALapiedu.com
     </div>
 
 </footer>
 
 
+
+<!-- JAVASCRIPT -->
+
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
