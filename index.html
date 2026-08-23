@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OL අපි 🇱🇰 | O/L Paper Hub</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#172033;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#073b8f,#1261d8);
+    color:white;
+    padding:18px 20px 28px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 4px 20px rgba(0,0,0,.15);
+}
+
+.header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    max-width:1100px;
+    margin:auto;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:800;
+}
+
+.logo span{
+    font-size:15px;
+    opacity:.9;
+    display:block;
+    margin-top:3px;
+}
+
+.menu-btn{
+    border:0;
+    background:rgba(255,255,255,.15);
+    color:white;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    font-size:21px;
+}
+
+/* HERO */
+.hero{
+    max-width:1100px;
+    margin:0 auto;
+    padding:35px 20px 25px;
+}
+
+.hero h1{
+    font-size:32px;
+    line-height:1.15;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#dbe9ff;
+    font-size:15px;
+    margin-bottom:20px;
+}
+
+.search{
+    width:100%;
+    background:white;
+    border-radius:15px;
+    padding:14px 17px;
+    border:0;
+    outline:none;
+    font-size:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+/* MAIN */
+main{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin:10px 0 15px;
+}
+
+.section-title h2{
+    font-size:21px;
+}
+
+.section-title small{
+    color:#667085;
+}
+
+/* GRADE */
+.grade-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.grade-card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    border:2px solid transparent;
+    box-shadow:0 5px 20px rgba(30,50,90,.07);
+    cursor:pointer;
+    transition:.2s;
+}
+
+.grade-card:hover{
+    transform:translateY(-3px);
+    border-color:#1261d8;
+}
+
+.grade-icon{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eaf2ff;
+    border-radius:14px;
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.grade-card h3{
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.grade-card p{
+    font-size:13px;
+    color:#667085;
+}
+
+/* SUBJECTS */
+.subject-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:32px;
+}
+
+.subject{
+    background:white;
+    padding:16px;
+    border-radius:15px;
+    box-shadow:0 4px 16px rgba(30,50,90,.06);
+    cursor:pointer;
+    transition:.2s;
+}
+
+.subject:hover{
+    transform:translateY(-2px);
+}
+
+.subject-icon{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.subject h3{
+    font-size:14px;
+}
+
+.subject p{
+    color:#7a8495;
+    font-size:11px;
+    margin-top:4px;
+}
+
+/* CATEGORIES */
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-bottom:32px;
+}
+
+.category{
+    background:white;
+    border-radius:17px;
+    padding:20px 15px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(30,50,90,.06);
+    cursor:pointer;
+}
+
+.category-icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.category h3{
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.category p{
+    color:#778196;
+    font-size:11px;
+}
+
+/* PROVINCES */
+.province-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:35px;
+}
+
+.province{
+    background:white;
+    padding:14px 10px;
+    border-radius:13px;
+    text-align:center;
+    font-size:13px;
+    font-weight:600;
+    box-shadow:0 3px 12px rgba(30,50,90,.05);
+    cursor:pointer;
+}
+
+.province:hover{
+    background:#edf4ff;
+    color:#0756c9;
+}
+
+/* PAPERS */
+.paper-list{
+    display:none;
+}
+
+.paper-card{
+    background:white;
+    border-radius:16px;
+    padding:17px;
+    margin-bottom:12px;
+    box-shadow:0 4px 15px rgba(30,50,90,.06);
+}
+
+.paper-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.paper-card h3{
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+.paper-card p{
+    color:#778196;
+    font-size:12px;
+}
+
+.badge{
+    background:#eaf2ff;
+    color:#0756c9;
+    padding:6px 9px;
+    border-radius:8px;
+    font-size:10px;
+    font-weight:bold;
+    height:max-content;
+}
+
+.buttons{
+    display:flex;
+    gap:8px;
+    margin-top:13px;
+}
+
+.btn{
+    flex:1;
+    border:0;
+    border-radius:9px;
+    padding:10px;
+    font-size:12px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.view{
+    background:#075bd5;
+    color:white;
+}
+
+.marking{
+    background:#eaf2ff;
+    color:#0756c9;
+}
+
+/* FOOTER */
+footer{
+    background:#101828;
+    color:white;
+    text-align:center;
+    padding:28px 20px;
+    margin-top:35px;
+}
+
+footer h3{
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+footer p{
+    color:#98a2b3;
+    font-size:12px;
+}
+
+footer .brand{
+    margin-top:12px;
+    color:#dbe9ff;
+}
+
+/* DESKTOP */
+@media(min-width:700px){
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .subject-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .grade-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .province-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+/* MOBILE */
+@media(max-width:420px){
+
+    .category-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .category{
+        padding:15px 7px;
+    }
+
+    .category h3{
+        font-size:12px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-top">
+
+        <div class="logo">
+            OL අපි 🇱🇰
+            <span>O/L Paper Hub</span>
+        </div>
+
+        <button class="menu-btn">☰</button>
+
+    </div>
+
+    <div class="hero">
+
+        <h1>Study Smarter.<br>Score Better. 🎓</h1>
+
+        <p>
+            Grade 10 & 11 O/L Papers, School Papers,
+            Province Papers, Notes & More.
+        </p>
+
+        <input
+            class="search"
+            type="search"
+            id="searchBox"
+            placeholder="🔎 Search papers, subjects, years..."
+            onkeyup="searchPapers()"
+        >
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- GRADES -->
+
+    <div class="section-title">
+        <h2>Choose Your Grade</h2>
+        <small>Grade 10 / 11</small>
+    </div>
+
+    <div class="grade-grid">
+
+        <div class="grade-card" onclick="selectGrade('Grade 10')">
+            <div class="grade-icon">📘</div>
+            <h3>Grade 10</h3>
+            <p>Grade 10 papers & learning resources</p>
+        </div>
+
+        <div class="grade-card" onclick="selectGrade('Grade 11')">
+            <div class="grade-icon">🎓</div>
+            <h3>Grade 11</h3>
+            <p>Grade 11 papers & O/L preparation</p>
+        </div>
+
+    </div>
+
+
+    <!-- SUBJECTS -->
+
+    <div class="section-title">
+        <h2>Subjects</h2>
+        <small>All Subjects</small>
+    </div>
+
+    <div class="subject-grid">
+
+        <div class="subject" onclick="openSubject('Sinhala')">
+            <div class="subject-icon">📖</div>
+            <h3>Sinhala</h3>
+            <p>Language & Literature</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Mathematics')">
+            <div class="subject-icon">📐</div>
+            <h3>Mathematics</h3>
+            <p>Mathematics</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Science')">
+            <div class="subject-icon">🔬</div>
+            <h3>Science</h3>
+            <p>Science</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('English')">
+            <div class="subject-icon">🔤</div>
+            <h3>English</h3>
+            <p>English Language</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('History')">
+            <div class="subject-icon">🏛️</div>
+            <h3>History</h3>
+            <p>History</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Buddhism')">
+            <div class="subject-icon">☸️</div>
+            <h3>Buddhism</h3>
+            <p>Religion</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('ICT')">
+            <div class="subject-icon">💻</div>
+            <h3>ICT</h3>
+            <p>Information & Communication</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Geography')">
+            <div class="subject-icon">🌍</div>
+            <h3>Geography</h3>
+            <p>Geography</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Health')">
+            <div class="subject-icon">❤️</div>
+            <h3>Health</h3>
+            <p>Health & Physical Education</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Commerce')">
+            <div class="subject-icon">💰</div>
+            <h3>Commerce</h3>
+            <p>Commerce</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Accounting')">
+            <div class="subject-icon">🧮</div>
+            <h3>Accounting</h3>
+            <p>Accounting</p>
+        </div>
+
+        <div class="subject" onclick="openSubject('Art')">
+            <div class="subject-icon">🎨</div>
+            <h3>Art</h3>
+            <p>Art</p>
+        </div>
+
+    </div>
+
+
+    <!-- PAPER TYPES -->
+
+    <div class="section-title">
+        <h2>Paper Collections</h2>
+        <small>Find your papers</small>
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category" onclick="showPapers('Past Papers')">
+            <div class="category-icon">📝</div>
+            <h3>Past Papers</h3>
+            <p>Previous exam papers</p>
+        </div>
+
+        <div class="category" onclick="showPapers('School Papers')">
+            <div class="category-icon">🏫</div>
+            <h3>School Papers</h3>
+            <p>School term papers</p>
+        </div>
+
+        <div class="category" onclick="showPapers('Province Papers')">
+            <div class="category-icon">🗺️</div>
+            <h3>Province Papers</h3>
+            <p>All 9 provinces</p>
+        </div>
+
+    </div>
+
+
+    <!-- PROVINCES -->
+
+    <div class="section-title">
+        <h2>Province Papers</h2>
+        <small>9 Provinces</small>
+    </div>
+
+    <div class="province-grid">
+
+        <div class="province" onclick="showProvince('Western Province')">
+            Western Province
+        </div>
+
+        <div class="province" onclick="showProvince('Central Province')">
+            Central Province
+        </div>
+
+        <div class="province" onclick="showProvince('Southern Province')">
+            Southern Province
+        </div>
+
+        <div class="province" onclick="showProvince('Northern Province')">
+            Northern Province
+        </div>
+
+        <div class="province" onclick="showProvince('Eastern Province')">
+            Eastern Province
+        </div>
+
+        <div class="province" onclick="showProvince('North Western Province')">
+            North Western Province
+        </div>
+
+        <div class="province" onclick="showProvince('North Central Province')">
+            North Central Province
+        </div>
+
+        <div class="province" onclick="showProvince('Uva Province')">
+            Uva Province
+        </div>
+
+        <div class="province" onclick="showProvince('Sabaragamuwa Province')">
+            Sabaragamuwa Province
+        </div>
+
+    </div>
+
+
+    <!-- PAPER RESULTS -->
+
+    <div id="paperSection" class="paper-list">
+
+        <div class="section-title">
+            <h2 id="paperTitle">Papers</h2>
+        </div>
+
+        <div id="paperResults"></div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <h3>OL අපි 🇱🇰</h3>
+
+    <p>
+        O/L Papers • School Papers • Province Papers •
+        Marking Schemes
+    </p>
+
+    <div class="brand">
+        ALapiedu.com
+    </div>
+
+</footer>
+
+
+<script>
+
+/* SAMPLE PAPER DATA */
+
+const papers = [
+
+    {
+        title:"2025 Mathematics Past Paper",
+        type:"Past Papers",
+        grade:"Grade 11",
+        subject:"Mathematics",
+        year:"2025",
+        paper:"#",
+        marking:"#"
+    },
+
+    {
+        title:"2024 Science Past Paper",
+        type:"Past Papers",
+        grade:"Grade 11",
+        subject:"Science",
+        year:"2024",
+        paper:"#",
+        marking:"#"
+    },
+
+    {
+        title:"2025 Western Province Mathematics",
+        type:"Province Papers",
+        province:"Western Province",
+        grade:"Grade 11",
+        subject:"Mathematics",
+        year:"2025",
+        paper:"#",
+        marking:"#"
+    },
+
+    {
+        title:"2025 Southern Province Science",
+        type:"Province Papers",
+        province:"Southern Province",
+        grade:"Grade 11",
+        subject:"Science",
+        year:"2025",
+        paper:"#",
+        marking:"#"
+    },
+
+    {
+        title:"2025 School Term Test Mathematics",
+        type:"School Papers",
+        grade:"Grade 10",
+        subject:"Mathematics",
+        year:"2025",
+        paper:"#",
+        marking:"#"
+    }
+
+];
+
+
+/* SHOW PAPERS */
+
+function showPapers(type){
+
+    const section = document.getElementById("paperSection");
+    const results = document.getElementById("paperResults");
+    const title = document.getElementById("paperTitle");
+
+    section.style.display = "block";
+
+    title.innerText = type;
+
+    const filtered = papers.filter(p => p.type === type);
+
+    renderPapers(filtered);
+
+    section.scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+/* SHOW PROVINCE */
+
+function showProvince(province){
+
+    const section = document.getElementById("paperSection");
+    const results = document.getElementById("paperResults");
+    const title = document.getElementById("paperTitle");
+
+    section.style.display = "block";
+
+    title.innerText = province;
+
+    const filtered = papers.filter(
+        p => p.province === province
+    );
+
+    renderPapers(filtered);
+
+    section.scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+/* SELECT GRADE */
+
+function selectGrade(grade){
+
+    const section = document.getElementById("paperSection");
+    const title = document.getElementById("paperTitle");
+
+    section.style.display = "block";
+
+    title.innerText = grade + " Papers";
+
+    const filtered = papers.filter(
+        p => p.grade === grade
+    );
+
+    renderPapers(filtered);
+
+    section.scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+/* SUBJECT */
+
+function openSubject(subject){
+
+    const section = document.getElementById("paperSection");
+    const title = document.getElementById("paperTitle");
+
+    section.style.display = "block";
+
+    title.innerText = subject + " Papers";
+
+    const filtered = papers.filter(
+        p => p.subject === subject
+    );
+
+    renderPapers(filtered);
+
+    section.scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+/* RENDER */
+
+function renderPapers(list){
+
+    const results = document.getElementById("paperResults");
+
+    if(list.length === 0){
+
+        results.innerHTML = `
+            <div class="paper-card">
+                <h3>📂 No papers added yet</h3>
+                <p>
+                    Papers will appear here when they are added.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    results.innerHTML = list.map(paper => `
+
+        <div class="paper-card">
+
+            <div class="paper-top">
+
+                <div>
+                    <h3>${paper.title}</h3>
+
+                    <p>
+                        ${paper.grade} •
+                        ${paper.subject} •
+                        ${paper.year}
+                    </p>
+                </div>
+
+                <div class="badge">
+                    ${paper.type}
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="btn view"
+                    onclick="window.open('${paper.paper}','_blank')"
+                >
+                    👁 View Paper
+                </button>
+
+                <button
+                    class="btn marking"
+                    onclick="window.open('${paper.marking}','_blank')"
+                >
+                    ✅ Marking
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* SEARCH */
+
+function searchPapers(){
+
+    const query =
+        document.getElementById("searchBox")
+        .value
+        .toLowerCase()
+        .trim();
+
+    if(!query){
+        return;
+    }
+
+    const results = papers.filter(paper =>
+
+        paper.title.toLowerCase().includes(query) ||
+        paper.subject.toLowerCase().includes(query) ||
+        paper.grade.toLowerCase().includes(query) ||
+        paper.year.toLowerCase().includes(query) ||
+        paper.type.toLowerCase().includes(query) ||
+        (paper.province &&
+        paper.province.toLowerCase().includes(query))
+
+    );
+
+    const section = document.getElementById("paperSection");
+    const title = document.getElementById("paperTitle");
+
+    section.style.display = "block";
+
+    title.innerText = "Search Results";
+
+    renderPapers(results);
+
+    section.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
