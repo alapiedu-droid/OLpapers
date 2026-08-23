@@ -1,1 +1,58 @@
+{
+  "grades": {
+    "10": {
+      "name": "Grade 10",
+      "subjects": [
+        "Sinhala",
+        "Mathematics",
+        "Science",
+        "English",
+        "History",
+        "Buddhism",
+        "ICT",
+        "Geography",
+        "Health & Physical Education",
+        "Commerce",
+        "Accounting",
+        "Art"
+      ]
+    },
+    "11": {
+      "name": "Grade 11",
+      "subjects": [
+        "Sinhala",
+        "Mathematics",
+        "Science",
+        "English",
+        "History",
+        "Buddhism",
+        "ICT",
+        "Geography",
+        "Health & Physical Education",
+        "Commerce",
+        "Accounting",
+        "Art"
+      ]
+    }
+  },
 
+  "paperTypes": [
+    "Past Papers",
+    "School Papers",
+    "Province Papers"
+  ],
+
+  "provinces": [
+    "Western Province",
+    "Central Province",
+    "Southern Province",
+    "Northern Province",
+    "Eastern Province",
+    "North Western Province",
+    "North Central Province",
+    "Uva Province",
+    "Sabaragamuwa Province"
+  ],
+
+  "papers": []
+}
