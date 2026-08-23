@@ -2,39 +2,286 @@
   "grades": {
     "10": {
       "name": "Grade 10",
-      "subjects": [
-        "Sinhala",
-        "Mathematics",
-        "Science",
-        "English",
-        "History",
-        "Buddhism",
-        "ICT",
-        "Geography",
-        "Health & Physical Education",
-        "Commerce",
-        "Accounting",
-        "Art"
-      ]
+      "subjects": []
     },
     "11": {
       "name": "Grade 11",
-      "subjects": [
-        "Sinhala",
-        "Mathematics",
-        "Science",
-        "English",
-        "History",
-        "Buddhism",
-        "ICT",
-        "Geography",
-        "Health & Physical Education",
-        "Commerce",
-        "Accounting",
-        "Art"
-      ]
+      "subjects": []
     }
   },
+
+  "subjects": [
+    {
+      "code": "11",
+      "name": "Buddhism",
+      "category": "Religion"
+    },
+    {
+      "code": "12",
+      "name": "Saivanery",
+      "category": "Religion"
+    },
+    {
+      "code": "14",
+      "name": "Catholicism",
+      "category": "Religion"
+    },
+    {
+      "code": "15",
+      "name": "Christianity",
+      "category": "Religion"
+    },
+    {
+      "code": "16",
+      "name": "Islam",
+      "category": "Religion"
+    },
+
+    {
+      "code": "21",
+      "name": "Sinhala Language & Literature",
+      "category": "Languages"
+    },
+    {
+      "code": "22",
+      "name": "Tamil Language & Literature",
+      "category": "Languages"
+    },
+    {
+      "code": "31",
+      "name": "English Language",
+      "category": "Languages"
+    },
+
+    {
+      "code": "32",
+      "name": "Mathematics",
+      "category": "Core Subjects"
+    },
+    {
+      "code": "33",
+      "name": "History",
+      "category": "Core Subjects"
+    },
+    {
+      "code": "34",
+      "name": "Science",
+      "category": "Core Subjects"
+    },
+
+    {
+      "code": "40",
+      "name": "Music (Oriental)",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "41",
+      "name": "Music (Western)",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "42",
+      "name": "Carnatic Music",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "43",
+      "name": "Art",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "44",
+      "name": "Dancing (Indigenous)",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "45",
+      "name": "Bharatha Dancing",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "46",
+      "name": "Appreciation of English Literary Texts",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "47",
+      "name": "Appreciation of Sinhala Literary Texts",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "48",
+      "name": "Appreciation of Tamil Literary Texts",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "49",
+      "name": "Appreciation of Arabic Literary Texts",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "50",
+      "name": "Drama & Theatre (Sinhala)",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "51",
+      "name": "Drama & Theatre (Tamil)",
+      "category": "Aesthetic"
+    },
+    {
+      "code": "52",
+      "name": "Drama & Theatre (English)",
+      "category": "Aesthetic"
+    },
+
+    {
+      "code": "60",
+      "name": "Business & Accounting Studies",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "61",
+      "name": "Geography",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "62",
+      "name": "Civic Education",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "63",
+      "name": "Entrepreneurship Studies",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "64",
+      "name": "Second Language - Sinhala",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "65",
+      "name": "Second Language - Tamil",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "66",
+      "name": "Pali",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "67",
+      "name": "Sanskrit",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "68",
+      "name": "French",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "69",
+      "name": "German",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "70",
+      "name": "Hindi",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "71",
+      "name": "Japanese",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "72",
+      "name": "Arabic",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "73",
+      "name": "Korean",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "74",
+      "name": "Chinese",
+      "category": "Basket Subjects"
+    },
+    {
+      "code": "75",
+      "name": "Russian",
+      "category": "Basket Subjects"
+    },
+
+    {
+      "code": "80",
+      "name": "Information & Communication Technology",
+      "category": "Technology"
+    },
+    {
+      "code": "81",
+      "name": "Agriculture & Food Technology",
+      "category": "Technology"
+    },
+    {
+      "code": "82",
+      "name": "Aquatic Bioresources Technology",
+      "category": "Technology"
+    },
+    {
+      "code": "84",
+      "name": "Arts & Crafts",
+      "category": "Technology"
+    },
+    {
+      "code": "85",
+      "name": "Home Economics",
+      "category": "Technology"
+    },
+    {
+      "code": "86",
+      "name": "Health & Physical Education",
+      "category": "Technology"
+    },
+    {
+      "code": "87",
+      "name": "Communication & Media Studies",
+      "category": "Technology"
+    },
+    {
+      "code": "88",
+      "name": "Design & Construction Technology",
+      "category": "Technology"
+    },
+    {
+      "code": "89",
+      "name": "Design & Mechanical Technology",
+      "category": "Technology"
+    },
+    {
+      "code": "90",
+      "name": "Design, Electrical & Electronic Technology",
+      "category": "Technology"
+    },
+    {
+      "code": "92",
+      "name": "Electronic Writing & Shorthand (Sinhala)",
+      "category": "Technology"
+    },
+    {
+      "code": "93",
+      "name": "Electronic Writing & Shorthand (Tamil)",
+      "category": "Technology"
+    },
+    {
+      "code": "94",
+      "name": "Electronic Writing & Shorthand (English)",
+      "category": "Technology"
+    }
+  ],
 
   "paperTypes": [
     "Past Papers",
@@ -54,16 +301,18 @@
     "Sabaragamuwa Province"
   ],
 
-"papers": [
-  {
-    "id": "math-11-2025-past-001",
-    "grade": "11",
-    "subject": "Mathematics",
-    "type": "Past Papers",
-    "year": "2025",
-    "title": "2025 G.C.E. O/L Mathematics",
-    "province": "",
-    "paperUrl": "",
-    "markingUrl": ""
-  }
-]
+  "papers": [
+    {
+      "id": "math-11-2025-past-001",
+      "grade": "11",
+      "subjectCode": "32",
+      "subject": "Mathematics",
+      "type": "Past Papers",
+      "year": "2025",
+      "title": "2025 G.C.E. O/L Mathematics",
+      "province": "",
+      "paperUrl": "",
+      "markingUrl": ""
+    }
+  ]
+}
