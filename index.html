@@ -3,19 +3,24 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>OL Papers | Sri Lanka</title>
+    <meta
+        name="description"
+        content="Sri Lanka O/L Papers - Past Papers, School Papers, Province Papers and Marking Schemes"
+    >
 
-<link
-    rel="stylesheet"
-    href="style.css"
->
+    <title>OL Hub 🇱🇰 | O/L Student Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -23,57 +28,41 @@
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =========================
+     TOP NAVIGATION
+========================= -->
 
-<header>
+<header class="topbar">
 
-    <div class="header-top">
+    <div class="nav-container">
 
-        <div class="logo">
+        <div class="brand">
 
-            OL PAPERS 🇱🇰
+            <div class="brand-icon">
+                OL
+            </div>
 
-            <span>
-                Sri Lanka O/L Student Hub
-            </span>
+            <div>
+
+                <div class="brand-name">
+                    OL HUB 🇱🇰
+                </div>
+
+                <div class="brand-sub">
+                    Student Resource Centre
+                </div>
+
+            </div>
 
         </div>
 
 
         <button
-            class="menu-btn"
-            onclick="window.scrollTo({
-                top:0,
-                behavior:'smooth'
-            })"
+            class="menu-button"
+            onclick="scrollToTop()"
         >
             ☰
         </button>
-
-    </div>
-
-
-    <div class="hero">
-
-        <h1>
-            O/L Papers<br>
-            Everything in One Place
-        </h1>
-
-        <p>
-            Grade 10 & Grade 11
-            Past Papers, School Papers,
-            Province Papers & Marking Schemes
-        </p>
-
-
-        <input
-            id="searchBox"
-            class="search"
-            type="search"
-            placeholder="🔍 Search subject, year or paper..."
-            oninput="searchPapers()"
-        >
 
     </div>
 
@@ -81,68 +70,68 @@
 
 
 
-<!-- ================= MAIN ================= -->
+<!-- =========================
+     HERO DASHBOARD
+========================= -->
 
-<main>
+<section class="hero">
 
-
-<!-- GRADES -->
-
-<section>
-
-    <div class="section-title">
-
-        <h2>
-            🎓 Select Grade
-        </h2>
-
-        <small>
-            Grade 10 / 11
-        </small>
-
-    </div>
+    <div class="hero-inner">
 
 
-    <div class="grade-grid">
+        <div class="hero-content">
 
-
-        <div
-            class="grade-card"
-            onclick="selectGrade('10')"
-        >
-
-            <div class="grade-icon">
-                1️⃣0️⃣
+            <div class="hero-badge">
+                🇱🇰 SRI LANKA O/L STUDENTS
             </div>
 
-            <h3>
-                Grade 10
-            </h3>
+
+            <h1>
+                Everything you need
+                <span>for your O/L journey.</span>
+            </h1>
+
 
             <p>
-                Grade 10 Papers
+                Past Papers, School Papers,
+                Province Papers, Marking Schemes
+                and more — all in one place.
             </p>
+
+
+            <div class="hero-search">
+
+                <span>
+                    🔍
+                </span>
+
+                <input
+                    id="searchBox"
+                    type="search"
+                    placeholder="Search papers, subjects or years..."
+                    oninput="searchPapers()"
+                >
+
+            </div>
 
         </div>
 
 
+        <div class="hero-stat">
 
-        <div
-            class="grade-card"
-            onclick="selectGrade('11')"
-        >
-
-            <div class="grade-icon">
-                1️⃣1️⃣
+            <div class="stat-number">
+                50+
             </div>
 
-            <h3>
-                Grade 11
-            </h3>
+            <div class="stat-label">
+                O/L Subjects
+            </div>
 
-            <p>
-                G.C.E. O/L Grade 11
-            </p>
+            <div class="stat-line"></div>
+
+            <div class="stat-small">
+                Grades 10 & 11
+            </div>
 
         </div>
 
@@ -153,270 +142,638 @@
 
 
 
-<!-- SUBJECTS -->
+<!-- =========================
+     MAIN DASHBOARD
+========================= -->
 
-<section>
-
-    <div class="section-title">
-
-        <h2>
-            📚 All Subjects
-        </h2>
-
-        <small>
-            O/L Subjects
-        </small>
-
-    </div>
+<main class="dashboard">
 
 
-    <div
-        id="subjectGrid"
-        class="subject-grid"
+    <!-- =========================
+         GRADE SELECTOR
+    ========================= -->
+
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    YOUR GRADE
+                </div>
+
+                <h2>
+                    Select your grade
+                </h2>
+
+            </div>
+
+            <div class="section-note">
+                Choose to explore papers
+            </div>
+
+        </div>
+
+
+        <div class="grade-grid">
+
+
+            <button
+                class="grade-card"
+                onclick="selectGrade('10')"
+            >
+
+                <div class="grade-number">
+                    10
+                </div>
+
+                <div class="grade-info">
+
+                    <span>
+                        GRADE
+                    </span>
+
+                    <strong>
+                        Grade 10
+                    </strong>
+
+                    <small>
+                        School & Term Papers
+                    </small>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </button>
+
+
+
+            <button
+                class="grade-card featured"
+                onclick="selectGrade('11')"
+            >
+
+                <div class="grade-number">
+                    11
+                </div>
+
+                <div class="grade-info">
+
+                    <span>
+                        G.C.E. O/L
+                    </span>
+
+                    <strong>
+                        Grade 11
+                    </strong>
+
+                    <small>
+                        Examination Resources
+                    </small>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MAIN SUBJECTS
+    ========================= -->
+
+    <section class="dashboard-section">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    SUBJECTS
+                </div>
+
+                <h2>
+                    Main subjects
+                </h2>
+
+            </div>
+
+            <div class="subject-count">
+                Core
+            </div>
+
+        </div>
+
+
+        <div
+            id="mainSubjectGrid"
+            class="subject-grid"
+        >
+
+            <!-- Main subjects generated by JavaScript -->
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         BASKET SUBJECTS
+    ========================= -->
+
+    <section class="dashboard-section">
+
+
+        <div class="hidden-section-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    OPTIONAL
+                </div>
+
+                <h2>
+                    Basket Subjects
+                </h2>
+
+                <p>
+                    Business, Geography, Languages
+                    and other optional subjects.
+                </p>
+
+            </div>
+
+
+            <button
+                id="basketToggle"
+                class="expand-button"
+                onclick="toggleBasketSubjects()"
+            >
+
+                <span>
+                    View Subjects
+                </span>
+
+                <b>
+                    ↓
+                </b>
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="basketSubjects"
+            class="subject-grid hidden-subjects"
+        >
+
+            <!-- Basket subjects generated here -->
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         OTHER SUBJECT GROUPS
+    ========================= -->
+
+    <section class="dashboard-section">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    EXPLORE MORE
+                </div>
+
+                <h2>
+                    Other subjects
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="group-grid">
+
+
+            <button
+                class="group-card aesthetic"
+                onclick="showCategory('Aesthetic')"
+            >
+
+                <div class="group-icon">
+                    🎨
+                </div>
+
+                <div>
+
+                    <strong>
+                        Aesthetic
+                    </strong>
+
+                    <span>
+                        Art, Music, Dancing & Drama
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+
+
+            <button
+                class="group-card technology"
+                onclick="showCategory('Technology')"
+            >
+
+                <div class="group-icon">
+                    💻
+                </div>
+
+                <div>
+
+                    <strong>
+                        Technology
+                    </strong>
+
+                    <span>
+                        ICT, Agriculture & Technology
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+
+
+            <button
+                class="group-card religion"
+                onclick="showCategory('Religion')"
+            >
+
+                <div class="group-icon">
+                    🕊️
+                </div>
+
+                <div>
+
+                    <strong>
+                        Religion
+                    </strong>
+
+                    <span>
+                        Religious Education
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+
+
+            <button
+                class="group-card language"
+                onclick="showCategory('Languages')"
+            >
+
+                <div class="group-icon">
+                    🌐
+                </div>
+
+                <div>
+
+                    <strong>
+                        Languages
+                    </strong>
+
+                    <span>
+                        Language & Literature
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         PAPER TYPES
+    ========================= -->
+
+    <section class="dashboard-section">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    RESOURCES
+                </div>
+
+                <h2>
+                    Find your papers
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="resource-grid">
+
+
+            <button
+                class="resource-card"
+                onclick="showPapers('Past Papers')"
+            >
+
+                <div class="resource-icon blue">
+                    📄
+                </div>
+
+                <div>
+
+                    <strong>
+                        Past Papers
+                    </strong>
+
+                    <span>
+                        Previous O/L examinations
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+
+
+            <button
+                class="resource-card"
+                onclick="showPapers('School Papers')"
+            >
+
+                <div class="resource-icon green">
+                    🏫
+                </div>
+
+                <div>
+
+                    <strong>
+                        School Papers
+                    </strong>
+
+                    <span>
+                        School term & model papers
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+
+
+            <button
+                class="resource-card"
+                onclick="showPapers('Province Papers')"
+            >
+
+                <div class="resource-icon purple">
+                    🗺️
+                </div>
+
+                <div>
+
+                    <strong>
+                        Province Papers
+                    </strong>
+
+                    <span>
+                        All 9 provinces
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROVINCES
+    ========================= -->
+
+    <section class="dashboard-section">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    PROVINCE PAPERS
+                </div>
+
+                <h2>
+                    Select a province
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="province-grid">
+
+
+            <button onclick="showProvince('Western Province')">
+                Western
+            </button>
+
+            <button onclick="showProvince('Central Province')">
+                Central
+            </button>
+
+            <button onclick="showProvince('Southern Province')">
+                Southern
+            </button>
+
+            <button onclick="showProvince('Northern Province')">
+                Northern
+            </button>
+
+            <button onclick="showProvince('Eastern Province')">
+                Eastern
+            </button>
+
+            <button onclick="showProvince('North Western Province')">
+                North Western
+            </button>
+
+            <button onclick="showProvince('North Central Province')">
+                North Central
+            </button>
+
+            <button onclick="showProvince('Uva Province')">
+                Uva
+            </button>
+
+            <button onclick="showProvince('Sabaragamuwa Province')">
+                Sabaragamuwa
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         RESULTS
+    ========================= -->
+
+    <section
+        id="paperSection"
+        class="results-section"
     >
 
-        <!-- Subjects are automatically loaded
-             from data/papers.json -->
+        <div class="results-heading">
 
-    </div>
+            <div>
 
-</section>
+                <div class="eyebrow">
+                    RESULTS
+                </div>
 
+                <h2 id="paperTitle">
+                    Papers
+                </h2>
 
-
-<!-- PAPER TYPES -->
-
-<section>
-
-    <div class="section-title">
-
-        <h2>
-            📄 Paper Categories
-        </h2>
-
-    </div>
-
-
-    <div class="category-grid">
-
-
-        <div
-            class="category"
-            onclick="showPapers('Past Papers')"
-        >
-
-            <div class="category-icon">
-                📄
             </div>
 
-            <h3>
-                Past Papers
-            </h3>
 
-            <p>
-                Previous O/L Exams
-            </p>
-
-        </div>
-
-
-
-        <div
-            class="category"
-            onclick="showPapers('School Papers')"
-        >
-
-            <div class="category-icon">
-                🏫
-            </div>
-
-            <h3>
-                School Papers
-            </h3>
-
-            <p>
-                School Term Papers
-            </p>
+            <button
+                class="close-results"
+                onclick="closeResults()"
+            >
+                ✕
+            </button>
 
         </div>
 
 
+        <div id="paperResults"></div>
 
-        <div
-            class="category"
-            onclick="showPapers('Province Papers')"
-        >
-
-            <div class="category-icon">
-                🗺️
-            </div>
-
-            <h3>
-                Province Papers
-            </h3>
-
-            <p>
-                All 9 Provinces
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- PROVINCES -->
-
-<section>
-
-    <div class="section-title">
-
-        <h2>
-            🗺️ Provinces
-        </h2>
-
-        <small>
-            9 Provinces
-        </small>
-
-    </div>
-
-
-    <div class="province-grid">
-
-
-        <div
-            class="province"
-            onclick="showProvince('Western Province')"
-        >
-            Western
-        </div>
-
-
-        <div
-            class="province"
-            onclick="showProvince('Central Province')"
-        >
-            Central
-        </div>
-
-
-        <div
-            class="province"
-            onclick="showProvince('Southern Province')"
-        >
-            Southern
-        </div>
-
-
-        <div
-            class="province"
-            onclick="showProvince('Northern Province')"
-        >
-            Northern
-        </div>
-
-
-        <div
-            class="province"
-            onclick="showProvince('Eastern Province')"
-        >
-            Eastern
-        </div>
-
-
-        <div
-            class="province"
-            onclick="showProvince('North Western Province')"
-        >
-            North Western
-        </div>
-
-
-        <div
-            class="province"
-            onclick="showProvince('North Central Province')"
-        >
-            North Central
-        </div>
-
-
-        <div
-            class="province"
-            onclick="showProvince('Uva Province')"
-        >
-            Uva
-        </div>
-
-
-        <div
-            class="province"
-            onclick="showProvince('Sabaragamuwa Province')"
-        >
-            Sabaragamuwa
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= PAPERS ================= -->
-
-<section
-    id="paperSection"
-    class="paper-list"
->
-
-
-    <div class="section-title">
-
-        <h2 id="paperTitle">
-            Papers
-        </h2>
-
-    </div>
-
-
-    <div id="paperResults"></div>
-
-
-</section>
+    </section>
 
 
 </main>
 
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    <h3>
-        OL PAPERS 🇱🇰
-    </h3>
+    <div class="footer-inner">
 
-    <p>
-        Sri Lankan O/L Student Resource Hub
-    </p>
+        <div>
 
-    <div class="brand">
-        AL අපි 🇱🇰 | ALapiedu.com
+            <div class="footer-logo">
+                OL HUB 🇱🇰
+            </div>
+
+            <p>
+                Sri Lankan O/L Student Resource Centre.
+            </p>
+
+        </div>
+
+
+        <div class="footer-brand">
+            AL අපි 🇱🇰
+            <br>
+            <span>
+                ALapiedu.com
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+        © 2026 OL Hub. All Rights Reserved.
     </div>
 
 </footer>
 
 
 
-<!-- JAVASCRIPT -->
-
 <script src="script.js"></script>
-
 
 </body>
 
