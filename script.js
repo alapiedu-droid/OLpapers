@@ -1,229 +1,441 @@
 let papers = [];
 let database = {};
 
+let basketOpened = false;
 
-// ===============================
+
+// =====================================
 // LOAD DATABASE
-// ===============================
+// =====================================
 
-async function loadPapers() {
+async function loadDatabase() {
+
     try {
 
-        const response = await fetch("data/papers.json");
+        const response =
+            await fetch("data/papers.json");
 
         if (!response.ok) {
-            throw new Error("Could not load papers.json");
+
+            throw new Error(
+                "Could not load papers.json"
+            );
+
         }
 
-        database = await response.json();
+        database =
+            await response.json();
 
-        papers = database.papers || [];
+        papers =
+            database.papers || [];
 
-        loadSubjects();
+        buildMainSubjects();
 
-        console.log("Database loaded successfully");
+        buildBasketSubjects();
+
+        console.log(
+            "OL database loaded successfully."
+        );
 
     } catch (error) {
 
-        console.error("Database error:", error);
+        console.error(
+            "Database loading error:",
+            error
+        );
 
     }
+
 }
 
 
-// ===============================
-// LOAD SUBJECTS
-// ===============================
 
-function loadSubjects() {
+// =====================================
+// SUBJECT ICON
+// =====================================
+
+function getSubjectIcon(category, name) {
+
+    const text =
+        name.toLowerCase();
+
+
+    if (
+        text.includes("mathematics")
+    ) {
+        return "📐";
+    }
+
+
+    if (
+        text.includes("science")
+    ) {
+        return "🔬";
+    }
+
+
+    if (
+        text.includes("history")
+    ) {
+        return "🏛️";
+    }
+
+
+    if (
+        text.includes("english")
+    ) {
+        return "🇬🇧";
+    }
+
+
+    if (
+        text.includes("sinhala")
+    ) {
+        return "📖";
+    }
+
+
+    if (
+        text.includes("tamil")
+    ) {
+        return "📚";
+    }
+
+
+    if (category === "Religion") {
+
+        return "🕊️";
+
+    }
+
+
+    if (category === "Aesthetic") {
+
+        return "🎨";
+
+    }
+
+
+    if (category === "Technology") {
+
+        return "💻";
+
+    }
+
+
+    if (category === "Basket Subjects") {
+
+        return "📦";
+
+    }
+
+
+    if (category === "Languages") {
+
+        return "🌐";
+
+    }
+
+
+    return "📘";
+
+}
+
+
+
+// =====================================
+// CREATE SUBJECT CARD
+// =====================================
+
+function createSubjectCard(subject) {
+
+    const card =
+        document.createElement("button");
+
+    card.className =
+        "subject-card";
+
+
+    card.type = "button";
+
+
+    card.onclick = function () {
+
+        openSubject(
+            subject.name,
+            subject.code
+        );
+
+    };
+
+
+    card.innerHTML = `
+
+        <div class="subject-icon">
+
+            ${getSubjectIcon(
+                subject.category,
+                subject.name
+            )}
+
+        </div>
+
+
+        <strong>
+            ${subject.name}
+        </strong>
+
+
+        <span>
+            Subject Code ${subject.code}
+        </span>
+
+    `;
+
+
+    return card;
+
+}
+
+
+
+// =====================================
+// MAIN SUBJECTS
+// =====================================
+
+function buildMainSubjects() {
 
     const container =
-        document.getElementById("subjectGrid");
+        document.getElementById(
+            "mainSubjectGrid"
+        );
+
 
     if (!container) return;
+
+
+    container.innerHTML = "";
+
 
     const subjects =
         database.subjects || [];
 
-    container.innerHTML = "";
 
-    subjects.forEach(subject => {
+    const mainSubjects =
+        subjects.filter(subject => {
 
-        const card =
-            document.createElement("div");
+            return [
 
-        card.className = "subject";
+                "Core Subjects",
+                "Languages",
+                "Religion"
 
-        card.onclick = () => {
-
-            openSubject(
-                subject.name,
-                subject.code
+            ].includes(
+                subject.category
             );
 
-        };
+        });
 
-        card.innerHTML = `
 
-            <div class="subject-icon">
-                ${getSubjectIcon(subject.category)}
-            </div>
+    mainSubjects.forEach(subject => {
 
-            <h3>
-                ${subject.name}
-            </h3>
+        container.appendChild(
+            createSubjectCard(subject)
+        );
 
-            <p>
-                Code: ${subject.code}
-            </p>
+    });
 
+}
+
+
+
+// =====================================
+// BASKET SUBJECTS
+// =====================================
+
+function buildBasketSubjects() {
+
+    const container =
+        document.getElementById(
+            "basketSubjects"
+        );
+
+
+    if (!container) return;
+
+
+    container.innerHTML = "";
+
+
+    const subjects =
+        database.subjects || [];
+
+
+    const basketSubjects =
+        subjects.filter(subject => {
+
+            return subject.category ===
+                "Basket Subjects";
+
+        });
+
+
+    basketSubjects.forEach(subject => {
+
+        container.appendChild(
+            createSubjectCard(subject)
+        );
+
+    });
+
+}
+
+
+
+// =====================================
+// TOGGLE BASKET
+// =====================================
+
+function toggleBasketSubjects() {
+
+    const container =
+        document.getElementById(
+            "basketSubjects"
+        );
+
+
+    const button =
+        document.getElementById(
+            "basketToggle"
+        );
+
+
+    basketOpened =
+        !basketOpened;
+
+
+    if (basketOpened) {
+
+        container.classList.add(
+            "show"
+        );
+
+
+        button.innerHTML = `
+            <span>
+                Hide Subjects
+            </span>
+
+            <b>
+                ↑
+            </b>
         `;
 
-        container.appendChild(card);
 
-    });
-}
+        setTimeout(() => {
+
+            container.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+
+        }, 100);
+
+    } else {
+
+        container.classList.remove(
+            "show"
+        );
 
 
-// ===============================
-// SUBJECT ICONS
-// ===============================
+        button.innerHTML = `
+            <span>
+                View Subjects
+            </span>
 
-function getSubjectIcon(category) {
+            <b>
+                ↓
+            </b>
+        `;
 
-    switch (category) {
-
-        case "Religion":
-            return "🛕";
-
-        case "Languages":
-            return "📚";
-
-        case "Core Subjects":
-            return "🎓";
-
-        case "Aesthetic":
-            return "🎨";
-
-        case "Basket Subjects":
-            return "📖";
-
-        case "Technology":
-            return "💻";
-
-        default:
-            return "📘";
     }
+
 }
 
 
-// ===============================
-// SHOW PAPERS BY TYPE
-// ===============================
 
-function showPapers(type) {
-
-    const section =
-        document.getElementById("paperSection");
-
-    const title =
-        document.getElementById("paperTitle");
-
-    section.style.display = "block";
-
-    title.innerText = type;
-
-    const filtered =
-        papers.filter(
-            paper => paper.type === type
-        );
-
-    renderPapers(filtered);
-
-    section.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-
-// ===============================
-// SHOW PAPERS BY PROVINCE
-// ===============================
-
-function showProvince(province) {
-
-    const section =
-        document.getElementById("paperSection");
-
-    const title =
-        document.getElementById("paperTitle");
-
-    section.style.display = "block";
-
-    title.innerText = province;
-
-    const filtered =
-        papers.filter(
-            paper => paper.province === province
-        );
-
-    renderPapers(filtered);
-
-    section.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-
-// ===============================
-// SHOW PAPERS BY GRADE
-// ===============================
+// =====================================
+// GRADE FILTER
+// =====================================
 
 function selectGrade(grade) {
 
     const section =
-        document.getElementById("paperSection");
+        document.getElementById(
+            "paperSection"
+        );
+
 
     const title =
-        document.getElementById("paperTitle");
+        document.getElementById(
+            "paperTitle"
+        );
 
-    section.style.display = "block";
+
+    section.style.display =
+        "block";
+
 
     title.innerText =
         "Grade " + grade + " Papers";
 
+
     const filtered =
         papers.filter(
-            paper => paper.grade === grade
+            paper =>
+                String(paper.grade) ===
+                String(grade)
         );
 
+
     renderPapers(filtered);
+
 
     section.scrollIntoView({
         behavior: "smooth"
     });
+
 }
 
 
-// ===============================
-// SHOW PAPERS BY SUBJECT
-// ===============================
+
+// =====================================
+// SUBJECT FILTER
+// =====================================
 
 function openSubject(
-    subject,
+    subjectName,
     subjectCode = ""
 ) {
 
     const section =
-        document.getElementById("paperSection");
+        document.getElementById(
+            "paperSection"
+        );
+
 
     const title =
-        document.getElementById("paperTitle");
+        document.getElementById(
+            "paperTitle"
+        );
 
-    section.style.display = "block";
+
+    section.style.display =
+        "block";
+
 
     title.innerText =
-        subject + " Papers";
+        subjectName + " Papers";
 
 
     const filtered =
@@ -232,45 +444,216 @@ function openSubject(
             if (subjectCode) {
 
                 return (
-                    paper.subjectCode === subjectCode ||
-                    paper.subject === subject
+
+                    paper.subjectCode ===
+                    subjectCode
+
+                    ||
+
+                    paper.subject ===
+                    subjectName
+
                 );
 
             }
 
-            return paper.subject === subject;
+
+            return (
+                paper.subject ===
+                subjectName
+            );
 
         });
 
 
     renderPapers(filtered);
 
+
     section.scrollIntoView({
         behavior: "smooth"
     });
+
 }
 
 
-// ===============================
+
+// =====================================
+// CATEGORY FILTER
+// =====================================
+
+function showCategory(category) {
+
+    const section =
+        document.getElementById(
+            "paperSection"
+        );
+
+
+    const title =
+        document.getElementById(
+            "paperTitle"
+        );
+
+
+    section.style.display =
+        "block";
+
+
+    title.innerText =
+        category + " Subjects";
+
+
+    const subjectList =
+        (database.subjects || [])
+        .filter(
+            subject =>
+                subject.category ===
+                category
+        );
+
+
+    const names =
+        subjectList.map(
+            subject =>
+                subject.name
+        );
+
+
+    const filtered =
+        papers.filter(
+            paper =>
+                names.includes(
+                    paper.subject
+                )
+        );
+
+
+    renderPapers(filtered);
+
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+
+// =====================================
+// PAPER TYPE
+// =====================================
+
+function showPapers(type) {
+
+    const section =
+        document.getElementById(
+            "paperSection"
+        );
+
+
+    const title =
+        document.getElementById(
+            "paperTitle"
+        );
+
+
+    section.style.display =
+        "block";
+
+
+    title.innerText =
+        type;
+
+
+    const filtered =
+        papers.filter(
+            paper =>
+                paper.type === type
+        );
+
+
+    renderPapers(filtered);
+
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+
+// =====================================
+// PROVINCE
+// =====================================
+
+function showProvince(province) {
+
+    const section =
+        document.getElementById(
+            "paperSection"
+        );
+
+
+    const title =
+        document.getElementById(
+            "paperTitle"
+        );
+
+
+    section.style.display =
+        "block";
+
+
+    title.innerText =
+        province;
+
+
+    const filtered =
+        papers.filter(
+            paper =>
+                paper.province ===
+                province
+        );
+
+
+    renderPapers(filtered);
+
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+
+// =====================================
 // RENDER PAPERS
-// ===============================
+// =====================================
 
 function renderPapers(list) {
 
     const results =
-        document.getElementById("paperResults");
+        document.getElementById(
+            "paperResults"
+        );
+
 
     if (!results) return;
 
 
-    if (!list || list.length === 0) {
+    if (
+        !list ||
+        list.length === 0
+    ) {
 
         results.innerHTML = `
 
             <div class="paper-card">
 
                 <h3>
-                    📂 No papers added yet
+                    📂 No papers available yet
                 </h3>
 
                 <p>
@@ -283,6 +666,7 @@ function renderPapers(list) {
         `;
 
         return;
+
     }
 
 
@@ -303,7 +687,7 @@ function renderPapers(list) {
                             )
                         "
                     >
-                        👁 View Paper
+                        📄 View Paper
                     </button>
 
                   `
@@ -314,11 +698,11 @@ function renderPapers(list) {
                         class="btn view"
                         onclick="
                             showMessage(
-                                'Paper PDF is not added yet.'
+                                'Paper PDF has not been added yet.'
                             )
                         "
                     >
-                        👁 View Paper
+                        📄 View Paper
                     </button>
 
                   `;
@@ -338,7 +722,7 @@ function renderPapers(list) {
                             )
                         "
                     >
-                        ✅ Marking
+                        ✓ Marking Scheme
                     </button>
 
                   `
@@ -349,11 +733,11 @@ function renderPapers(list) {
                         class="btn marking"
                         onclick="
                             showMessage(
-                                'Marking Scheme is not added yet.'
+                                'Marking Scheme has not been added yet.'
                             )
                         "
                     >
-                        ✅ Marking
+                        ✓ Marking Scheme
                     </button>
 
                   `;
@@ -381,7 +765,9 @@ function renderPapers(list) {
 
 
                         <div class="badge">
+
                             ${paper.type}
+
                         </div>
 
                     </div>
@@ -400,17 +786,22 @@ function renderPapers(list) {
             `;
 
         }).join("");
+
 }
 
 
-// ===============================
+
+// =====================================
 // SEARCH
-// ===============================
+// =====================================
 
 function searchPapers() {
 
     const input =
-        document.getElementById("searchBox");
+        document.getElementById(
+            "searchBox"
+        );
+
 
     if (!input) return;
 
@@ -422,22 +813,25 @@ function searchPapers() {
 
 
     const section =
-        document.getElementById("paperSection");
+        document.getElementById(
+            "paperSection"
+        );
 
 
     if (!query) {
 
-        section.style.display = "none";
+        section.style.display =
+            "none";
 
         return;
 
     }
 
 
-    const results =
+    const filtered =
         papers.filter(paper => {
 
-            const searchableText = [
+            const text = [
 
                 paper.title,
                 paper.subject,
@@ -452,29 +846,69 @@ function searchPapers() {
             .toLowerCase();
 
 
-            return searchableText.includes(
+            return text.includes(
                 query
             );
 
         });
 
 
-    section.style.display = "block";
+    section.style.display =
+        "block";
 
 
     document.getElementById(
         "paperTitle"
-    ).innerText = "Search Results";
+    ).innerText =
+        "Search Results";
 
 
-    renderPapers(results);
+    renderPapers(filtered);
 
 }
 
 
-// ===============================
+
+// =====================================
+// CLOSE RESULTS
+// =====================================
+
+function closeResults() {
+
+    const section =
+        document.getElementById(
+            "paperSection"
+        );
+
+
+    section.style.display =
+        "none";
+
+}
+
+
+
+// =====================================
+// SCROLL TOP
+// =====================================
+
+function scrollToTop() {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+
+// =====================================
 // MESSAGE
-// ===============================
+// =====================================
 
 function showMessage(message) {
 
@@ -483,15 +917,16 @@ function showMessage(message) {
 }
 
 
-// ===============================
+
+// =====================================
 // START
-// ===============================
+// =====================================
 
 document.addEventListener(
     "DOMContentLoaded",
-    () => {
+    function () {
 
-        loadPapers();
+        loadDatabase();
 
     }
 );
