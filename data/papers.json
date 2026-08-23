@@ -54,5 +54,16 @@
     "Sabaragamuwa Province"
   ],
 
-  "papers": []
-}
+"papers": [
+  {
+    "id": "math-11-2025-past-001",
+    "grade": "11",
+    "subject": "Mathematics",
+    "type": "Past Papers",
+    "year": "2025",
+    "title": "2025 G.C.E. O/L Mathematics",
+    "province": "",
+    "paperUrl": "",
+    "markingUrl": ""
+  }
+]
